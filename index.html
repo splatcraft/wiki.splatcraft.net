@@ -213,7 +213,19 @@
     <div class="wiki-overlay">
       <div class="table-version">
         <p style="height:5%">
-          Current Version: <a href=""><em>3.1.3</em></a><br>
+          Current Version: <a href=""><em id = "modVersion">3.1.3</em></a><br>
+          <script>
+            async function version(){
+              githubText = await fetch("https://raw.githubusercontent.com/splatcraft/splatcraft-forge/1.16.5/stable/gradle.properties")
+              await githubText.text().then(
+                (data) => {
+                  githubText = data
+                }
+              )
+              document.getElementById("modVersion").innerHTML = /(?<=mod_version=)\d*.\d*.\d*/gm.exec(githubText)
+            }
+            version()
+          </script>
         </p>
         <table style="text-align:left; padding-left: 10%; padding-right: 10%;">
           <tr>
