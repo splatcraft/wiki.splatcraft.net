@@ -40,7 +40,7 @@
     padding-top: 15px;
     padding-right: 2%;
     padding-left: 2%;
-    border-bottom: solid #DF641A 5px;
+    border-bottom: solid #aadc00 5px;
     box-shadow: 0 1px 16px rgba(0, 0, 0, 0.5);
     justify-content: space-between;
     flex-direction: row;
@@ -49,6 +49,56 @@
 
   #splatlogo::after {
     border-radius: 20%;
+  }
+
+  #hr-blue {
+    border: none;
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      right: 5px;
+      max-width: 100%;
+      width: 80%;
+      border: 1px solid #26229F;
+      left: 7%;
+    }
+  }
+
+  .no-decor {
+    text-decoration: none;
+    font-weight: normal;
+    left: 0;
+    text-align: left;
+    padding-left: 10%;
+    width: 100%;
+    padding-right: 10%;
+  }
+  #hr-orange {
+    border: none;
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      right: 5px;
+      max-width: 100%;
+      width: 80%;
+      border: 1px solid #fb5c03;
+      left: 7%;
+    }
+  }
+
+  .no-decor {
+    text-decoration: none;
+    font-weight: normal;
+    left: 0;
+    text-align: left;
+    padding-left: 10%;
+    width: 100%;
+    padding-right: 10%;
+    line-height: 150%;
   }
 </style>
 
@@ -84,10 +134,79 @@
         <table>
           <tr>
             <th>
-              Navigation
+              <div style="    font-weight: normal;
+              font-size: 1.4em;   padding-left:20%;">
+                Navigation
+                <hr id="hr-blue">
+              </div>
+            </th>
+        </table>
+        <table style="margin-top:4%">
+          <tr>
+            <th class="no-decor">
+              <a href="index.html">
+                Main page
+              </a>
+            </th>
+          </tr>
+          <tr>
+            <th class="no-decor">
+              <a href="developers.html">
+                Mod devs
+              </a>
+            </th>
+          </tr>
+          <tr>
+            <th class="no-decor">
+              <a href="policy.html">
+                Policy
+              </a>
+            </th>
+          </tr>
+          <tr>
+            <th class="no-decor" >
+              <a href="help.html">
+                Help
+              </a>
             </th>
           </tr>
         </table>
+        <p style="margin:12%">
+        </p>
+        <table>
+          <tr>
+            <th>
+              <div style="    font-weight: normal;
+              font-size: 1.4em;   padding-left:20%;">
+                Explore
+                <hr id="hr-orange">
+              </div>
+            </th>
+        </table>
+        <table>
+          <tr>
+            <th class="no-decor">
+              Weapons
+            </th>
+          </tr>
+          <tr>
+            <th class="no-decor">
+              Blocks
+            </th>
+          </tr>
+          <tr>
+            <th class="no-decor">
+              Entities
+            </th>
+          </tr>
+          <tr>
+            <th class="no-decor">
+              Blocks
+            </th>
+          </tr>
+        </table>
+        <p style="margin:12%">
+        </p>
       </div>
     </div>
 
@@ -123,7 +242,7 @@
             </th>
             <th>
               <a href="music.html">
-
+                Music
               </a>
             </th>
             <th>

@@ -63,6 +63,56 @@
         font-weight: normal;
         font-size: 1.8em;
     }
+
+    #hr-blue {
+    border: none;
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      right: 5px;
+      max-width: 100%;
+      width: 80%;
+      border: 1px solid #26229F;
+      left: 7%;
+    }
+  }
+
+  .no-decor {
+    text-decoration: none;
+    font-weight: normal;
+    left: 0;
+    text-align: left;
+    padding-left: 10%;
+    width: 100%;
+    padding-right: 10%;
+  }
+  #hr-orange {
+    border: none;
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      right: 5px;
+      max-width: 100%;
+      width: 80%;
+      border: 1px solid #fb5c03;
+      left: 7%;
+    }
+  }
+
+  .no-decor {
+    text-decoration: none;
+    font-weight: normal;
+    left: 0;
+    text-align: left;
+    padding-left: 10%;
+    width: 100%;
+    padding-right: 10%;
+    line-height: 150%;
+  }
 </style>
 
 <body>
@@ -95,15 +145,82 @@
             </div>
             <div id="sidebar">
                 <table>
-                    <tr>
-                        <th>
-                            Navigation
-                        </th>
-                    </tr>
+                  <tr>
+                    <th>
+                      <div style="    font-weight: normal;
+                      font-size: 1.4em;   padding-left:20%;">
+                        Navigation
+                        <hr id="hr-blue">
+                      </div>
+                    </th>
                 </table>
+                <table style="margin-top:4%">
+                  <tr>
+                    <th class="no-decor">
+                      <a href="index.html">
+                        Main page
+                      </a>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th class="no-decor">
+                      <a href="developers.html">
+                        Mod devs
+                      </a>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th class="no-decor">
+                      <a href="policy.html">
+                        Policy
+                      </a>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th class="no-decor" >
+                      <a href="help.html">
+                        Help
+                      </a>
+                    </th>
+                  </tr>
+                </table>
+                <p style="margin:12%">
+                </p>
+                <table>
+                  <tr>
+                    <th>
+                      <div style="    font-weight: normal;
+                      font-size: 1.4em;   padding-left:20%;">
+                        Explore
+                        <hr id="hr-orange">
+                      </div>
+                    </th>
+                </table>
+                <table>
+                  <tr>
+                    <th class="no-decor">
+                      Weapons
+                    </th>
+                  </tr>
+                  <tr>
+                    <th class="no-decor">
+                      Blocks
+                    </th>
+                  </tr>
+                  <tr>
+                    <th class="no-decor">
+                      Entities
+                    </th>
+                  </tr>
+                  <tr>
+                    <th class="no-decor">
+                      Blocks
+                    </th>
+                  </tr>
+                </table>
+                <p style="margin:12%">
+                </p>
             </div>
-        </div>
-
         <div class="wiki-overlay">
             <h1>Splattershot</h1>
             <div
@@ -247,8 +364,8 @@
                 <p>
                     The Splattershot has the following data:
                 </p>
-                <div style="style=column-width: 25em;" id="weaponData">
-                    <!-- <ul>
+                <div style="column-width: 25em;" id="weaponData">
+                    <!-- <ul> I made this at like 10 pm (CET)
                         <li>
                             The projectile size is 1.
                         </li>
