@@ -11,6 +11,13 @@ async function getWeaponData(){
 function getShooter(name){
   return eval(eval(`regex = /new ShooterItem\\(new WeaponSettings\\(\\"${name}(?:[^;]*);/gm`).exec(githubText)[0].replace(/\n/gm, "").replace(/f\)/gm,")"))
 }
+function getBlaster(name){
+  return eval(eval(`regex = /new BlasterItem\\(new WeaponSettings\\(\\"${name}(?:[^;]*);/gm`).exec(githubText)[0].replace(/\n/gm, "").replace(/f\)/gm,")"))
+}
+
+function round(x){
+  return parseFloat(x.toFixed(2))
+}
 
 class ShooterItem{
   constructor(settings){
@@ -19,16 +26,39 @@ class ShooterItem{
   text(){
     return `
     The projectile size is ${this.settings.projectileSize / 2} blocks<br>
-    The projectile speed is ${parseFloat((this.settings.projectileSpeed * 20).toFixed(2))} blocks per second <br>
-    The firing speed is ${parseFloat((this.settings.firingSpeed / 20).toFixed(2))} seconds between shots or ${parseFloat((20 / this.settings.firingSpeed).toFixed(2))} shots per second<br>
+    The projectile speed is ${round(this.settings.projectileSpeed * 20)} blocks per second <br>
+    The firing speed is ${round(this.settings.firingSpeed / 20)} seconds between shots or ${round(20 / this.settings.firingSpeed)} shots per second<br>
     The ground inaccuracy is ${this.settings.groundInaccuracy} <br>
     The air inaccuracy is ${this.settings.airInaccuracy} <br>
     The ink consumption is ${this.settings.inkConsumption}% per shot <br>
     The ink recovery cooldown is ${this.settings.inkRecoveryCooldown / 20} seconds <br>
     The base damage is ${this.settings.baseDamage / 2} hearts (${'<img src="images/heart.webp">'.repeat(Math.floor(this.settings.baseDamage / 2))}${this.settings.baseDamage % 2 == 1 ? '<img src="images/half_heart.webp">' : ""}) <br>
     The minimum damage is ${this.settings.minDamage / 2} hearts (${'<img src="images/heart.webp">'.repeat(Math.floor(this.settings.minDamage / 2))}${this.settings.minDamage % 2 == 1 ? '<img src="images/half_heart.webp">' : ""}) <br>
-    The damage decay starts ${parseFloat((this.settings.damageDecayStartTick / 20).toFixed(2))} seconds after the projectile is fired<br>
-    The damage decay rate is ${parseFloat(((this.settings.damageDecayPerTick * 20) / 2).toFixed(2))} hearts (${'<img src="images/heart.webp">'.repeat(Math.floor((this.settings.damageDecayPerTick * 20) / 2))}${parseFloat(((this.settings.damageDecayPerTick * 20) / 2).toFixed(2)) % 1 >= 0.5 ? '<img src="images/half_heart.webp">' : ""}) per second <br>
+    The damage decay starts ${round(this.settings.damageDecayStartTick / 20)} seconds after the projectile is fired<br>
+    The damage decay rate is ${round((this.settings.damageDecayPerTick * 20) / 2)} hearts (${'<img src="images/heart.webp">'.repeat(Math.floor((this.settings.damageDecayPerTick * 20) / 2))}${round((this.settings.damageDecayPerTick * 20) / 2) % 1 >= 0.5 ? '<img src="images/half_heart.webp">' : ""}) per second <br>
+    `
+  }
+}
+
+class BlasterItem{
+  constructor(settings){
+    this.settings = settings
+  }
+  text(){
+    return `
+    The projectile size is ${this.settings.projectileSize / 2} blocks<br>
+    The projectile explodes after ${round(this.settings.projectileLifeSpan / 20)} seconds <br>
+    The projectile speed is ${round(this.settings.projectileSpeed * 20)} blocks per second <br>
+    The firing speed is ${round(this.settings.firingSpeed / 20)} seconds between shots or ${round(20 / this.settings.firingSpeed)} shots per second<br>
+    The projectile isn't spawned until after ${round(this.startupTicks / 20)} seconds
+    The ground inaccuracy is ${this.settings.groundInaccuracy} <br>
+    The air inaccuracy is ${this.settings.airInaccuracy} <br>
+    The ink consumption is ${this.settings.inkConsumption}% per shot <br>
+    The ink recovery cooldown is ${this.settings.inkRecoveryCooldown / 20} seconds <br>
+    The base damage is ${this.settings.baseDamage / 2} hearts (${'<img src="images/heart.webp">'.repeat(Math.floor(this.settings.baseDamage / 2))}${this.settings.baseDamage % 2 == 1 ? '<img src="images/half_heart.webp">' : ""}) <br>
+    The minimum damage is ${this.settings.minDamage / 2} hearts (${'<img src="images/heart.webp">'.repeat(Math.floor(this.settings.minDamage / 2))}${this.settings.minDamage % 2 == 1 ? '<img src="images/half_heart.webp">' : ""}) <br>
+    The damage decay starts ${round(this.settings.damageDecayStartTick / 20)} seconds after the projectile is fired<br>
+    The damage decay rate is ${round((this.settings.damageDecayPerTick * 20) / 2)} hearts (${'<img src="images/heart.webp">'.repeat(Math.floor((this.settings.damageDecayPerTick * 20) / 2))}${round((this.settings.damageDecayPerTick * 20) / 2) % 1 >= 0.5 ? '<img src="images/half_heart.webp">' : ""}) per second <br>
     `
   }
 }
@@ -36,8 +66,10 @@ class ShooterItem{
 class WeaponSettings{
   constructor(arg){
     this.projectileSize = 1
+    this.projectileLifeSpan = 5
     this.projectileSpeed = 0.75
     this.firingSpeed = 3
+    this.startupTicks = 4
     this.groundInaccuracy = 6
     this.airInaccuracy = 12
     this.inkConsumption = 0.9
@@ -46,6 +78,16 @@ class WeaponSettings{
     this.minDamage = 4
     this.damageDecayStartTick = 3
     this.damageDecayPerTick = 0.34
+  }
+
+  setStartupTicks(x){
+    this.startupTicks = x
+    return this
+  }
+
+  setProjectileLifespan(x){
+    this.projectileLifeSpan = x
+    return this
   }
   
   setProjectileSize(x){
