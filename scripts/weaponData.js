@@ -18,17 +18,17 @@ class ShooterItem{
   }
   text(){
     return `
-    The projectile size is ${this.settings.projectileSize / 2} meters<br>
-    The projectile Speed is ${(this.settings.projectileSpeed / 20).toFixed(3)} meters per second <br>
-    The firing speed is ${(this.settings.firingSpeed / 20).toFixed(3)} seconds between shots or ${(20 / this.settings.firingSpeed,2).toFixed(3)} shots per second<br>
+    The projectile size is ${this.settings.projectileSize / 2} blocks<br>
+    The projectile speed is ${parseFloat((this.settings.projectileSpeed / 20).toFixed(2))} blocks per second <br>
+    The firing speed is ${parseFloat((this.settings.firingSpeed / 20).toFixed(2))} seconds between shots or ${parseFloat((20 / this.settings.firingSpeed).toFixed(2))} shots per second<br>
     The ground inaccuracy is ${this.settings.groundInaccuracy} <br>
     The air inaccuracy is ${this.settings.airInaccuracy} <br>
-    The ink consumption is ${this.settings.inkConsumption}% <br>
+    The ink consumption is ${this.settings.inkConsumption}% per shot <br>
     The ink recovery cooldown is ${this.settings.inkRecoveryCooldown / 20} seconds <br>
-    The base damage is ${this.settings.baseDamage / 2} hearts <br>
-    The minimum damage is ${this.settings.minDamage / 2} hearts <br>
-    The damage decay starts after ${this.settings.damageDecayStartTick / 20} <br>
-    The damage decay rate is ${((this.settings.damageDecayPerTick * 20) / 2).toFixed(3)} hearts per second <br>
+    The base damage is ${this.settings.baseDamage / 2} hearts (${'<img src="images/heart.webp">'.repeat(Math.floor(this.settings.baseDamage / 2))}${this.settings.baseDamage % 2 == 1 ? '<img src="images/half_heart.webp">' : ""}) <br>
+    The minimum damage is ${this.settings.minDamage / 2} hearts (${'<img src="images/heart.webp">'.repeat(Math.floor(this.settings.minDamage / 2))}${this.settings.minDamage % 2 == 1 ? '<img src="images/half_heart.webp">' : ""}) <br>
+    The damage decay starts ${parseFloat((this.settings.damageDecayStartTick / 20).toFixed(2))} seconds after the projectile is fired<br>
+    The damage decay rate is ${parseFloat(((this.settings.damageDecayPerTick * 20) / 2).toFixed(2))} hearts (${'<img src="images/heart.webp">'.repeat(Math.floor((this.settings.damageDecayPerTick * 20) / 2))}${parseFloat(((this.settings.damageDecayPerTick * 20) / 2).toFixed(2)) % 1 != 0 ? '<img src="images/half_heart.webp">' : ""}) per second <br>
     `
   }
 }
