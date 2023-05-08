@@ -94,6 +94,8 @@ class WeaponSettings{
   }
 }
 
-//usage example (data is null until a response from github server then it is the statblock for the weapon): 
-//data = null
-//getWeaponData().then(() => {data = getShooter("weaponName").text()})
+// async function showData(){
+//   await getWeaponData()
+//   document.getElementById("weaponData").innerHTML = getShooter("splattershot").text()
+// }
+// showData()
