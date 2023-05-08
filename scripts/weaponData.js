@@ -93,3 +93,7 @@ class WeaponSettings{
     return this
   }
 }
+
+//usage example (data is null until a response from github server then it is the statblock for the weapon): 
+//data = null
+//getWeaponData().then(() => {data = getShooter("weaponName").text()})
