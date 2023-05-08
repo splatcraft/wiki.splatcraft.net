@@ -6,7 +6,7 @@
 
 <head>
     <title>Splatcraft Wiki | Splattershot</title>
-    <link rel="icon" type="image/x-icon" href="images/splatcraft-icon.icon">
+    <link rel="icon" type="image/x-icon" href="images/splatcraft-icon.ico">
     <link rel="stylesheet" href="css files/main.css">
 </head>
 <style>
@@ -247,8 +247,8 @@
                 <p>
                     The Splattershot has the following data:
                 </p>
-                <div style="style=column-width: 25em;">
-                    <ul>
+                <div style="style=column-width: 25em;" id="weaponData">
+                    <!-- <ul>
                         <li>
                             The projectile size is 1.
                         </li>
@@ -287,8 +287,16 @@
                         <li>
                             Damage decay per tick is 0.34.
                         </li>
-                    </ul>
+                    </ul> -->
                 </div>
+                <script src="scripts/weaponData.js"></script>
+                <script>
+                    async function showData(){
+                        await getWeaponData()
+                        document.getElementById("weaponData").innerHTML = getShooter("splattershot").text()
+                    }
+                    showData()
+                </script>
             <h2>
                 Variants
             </h2>
