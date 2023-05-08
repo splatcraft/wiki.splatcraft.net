@@ -19,7 +19,7 @@ class ShooterItem{
   text(){
     return `
     The projectile size is ${this.settings.projectileSize / 2} blocks<br>
-    The projectile speed is ${parseFloat((this.settings.projectileSpeed / 20).toFixed(2))} blocks per second <br>
+    The projectile speed is ${parseFloat((this.settings.projectileSpeed * 20).toFixed(2))} blocks per second <br>
     The firing speed is ${parseFloat((this.settings.firingSpeed / 20).toFixed(2))} seconds between shots or ${parseFloat((20 / this.settings.firingSpeed).toFixed(2))} shots per second<br>
     The ground inaccuracy is ${this.settings.groundInaccuracy} <br>
     The air inaccuracy is ${this.settings.airInaccuracy} <br>
