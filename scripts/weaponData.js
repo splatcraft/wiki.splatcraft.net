@@ -50,7 +50,7 @@ class BlasterItem{
     The projectile explodes after ${round(this.settings.projectileLifeSpan / 20)} seconds <br>
     The projectile speed is ${round(this.settings.projectileSpeed * 20)} blocks per second <br>
     The firing speed is ${round(this.settings.firingSpeed / 20)} seconds between shots or ${round(20 / this.settings.firingSpeed)} shots per second<br>
-    The projectile isn't spawned until after ${round(this.startupTicks / 20)} seconds
+    The projectile isn't spawned until after ${round(this.settings.startupTicks / 20)} seconds after the weapon is fired <br>
     The ground inaccuracy is ${this.settings.groundInaccuracy} <br>
     The air inaccuracy is ${this.settings.airInaccuracy} <br>
     The ink consumption is ${this.settings.inkConsumption}% per shot <br>
