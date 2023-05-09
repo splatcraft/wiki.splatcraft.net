@@ -65,7 +65,7 @@ class BlasterItem{
     The base damage is ${this.settings.baseDamage / 2} hearts (${hearts(this.settings.baseDamage)}) <br>
     The minimum damage is ${this.settings.minDamage / 2} hearts (${hearts(this.settings.minDamage)}) <br>
     The damage decay starts ${round(this.settings.damageDecayStartTick / 20)} seconds after the projectile is fired<br>
-    The damage decay rate is ${round((this.settings.damageDecayPerTick * 20) / 2)} hearts (${hearts(this.damageDecayPerTick * 20)}) per second <br>
+    The damage decay rate is ${round((this.settings.damageDecayPerTick * 20) / 2)} hearts (${hearts(this.settings.damageDecayPerTick * 20)}) per second <br>
     `
   }
 }
