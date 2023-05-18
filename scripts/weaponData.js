@@ -80,11 +80,40 @@ class WeaponSettings{
     this.groundInaccuracy = 6
     this.airInaccuracy = 12
     this.inkConsumption = 0.9
+    this.minInkConsumption = 2.25
     this.inkRecoveryCooldown = 7
     this.baseDamage = 8
     this.minDamage = 4
     this.damageDecayStartTick = 3
     this.damageDecayPerTick = 0.34
+    this.dischargeTicks = 20
+    this.chargerMobility = 0.4
+    this.fastMidAirCharge = false
+    this.chargerPiercesAt = 1.1
+  }
+  setChargerPiercesAt(x){
+    this.chargerPiercesAt = x
+    return this
+  }
+
+  setFastMidAirCharge(x){
+    this.fastMidAirCharge = x
+    return this
+  }
+  
+  setChargerMobility(x){
+    this.chargerMobility = x
+    return this
+  }
+
+  setMinInkConsumption(x){
+    this.minInkConsumption = x
+    return this
+  }
+  
+  setDischargeTicks(x){
+    this.dischargeTicks = x
+    return this
   }
 
   setStartupTicks(x){
