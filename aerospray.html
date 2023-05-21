@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<meta charset="UTF-8">
+<meta lang="en">
+<!--for fuck sake why am i doing this lmao -->
+
+<head>
+</head>
+
+<body>
+    <script src="scripts/buildCommonHTML.js"></script>
+    <script>
+        overlay = document.body
+        overlay.innerHTML = createWeaponBlock(
+            [
+                {type:"title", content:"Aerospray MG"},
+                {type:"image", source:"images/weapons/aerospray_mg.png", title:"Aerospray MG"},
+                {type:"text", content:"The current model for the Aerospray MG"},
+                {type:"info", table:[
+                    {type:"title",content:"Basic Information"},
+                    {type:"text",title:"Type of Weapon", content:"Main"},
+                    {type:"text",title:"class",content:"Shooter"},
+                    {type:"bar",title:"Range",max:100,value:37},
+                    {type:"bar",title:"Damage",max:100,value:25},
+                    {type:"bar",title:"Fire rate",max:100,value:80},
+                    {type:"title",content:"Crafting"},
+                    {type:"crafting", content:[
+                        ["images/crafting/sardinium.png",5],
+                        ["images/crafting/power_egg.png",20],
+                        ["images/crafting/inc_sac.webp",16],
+                        ["images/crafting/iron_ingot.webp",5]
+                    ]},
+                    {type:"title",content:"Specifications"},
+                    {type:"text",title:"Base Damage",content:"2.5"},
+                    {type:"text",title:"Ink Consumption",content:"0.5"}
+                ]}
+            ]
+        ) + overlay.innerHTML
+    </script>
+    <h1 style="width:fit-content">Aerospray MG</h1>
+    <p>
+        <i>
+            From Splatcraft Wiki
+        </i>
+
+    </p>
+    <p>
+        This weapon is a very fast shooting shooter with very low damage and range. It accels at painting and close range combat, but struggles against longer ranged weapons or weapons that have 1 shot kill capability.
+    </p>
+    <h2>
+        Appearance
+    </h2>
+    <p>
+        The Aerospray MG resembles a spray painting gun, similar to its model in Splatoon but more blocky.
+    </p>
+    <p>
+        The model is primarily a silver/gray color. The model was made by Cibernet.
+    </p>
+    <h2>
+        Weapon data
+    </h2>
+        <p>
+            The Aerospray MG has the following data:
+        </p>
+        <div style="column-width: 25em;" id="weaponData">
+        </div>
+        <script src="scripts/weaponData.js"></script>
+        <script>
+            async function showData(){
+                await getWeaponData()
+                document.getElementById("weaponData").innerHTML = getShooter("aerospray_mg").text()
+            }
+            showData()
+        </script>
+    <h2>
+        Variants
+    </h2>
+    <p>
+        Aerospray RG, features the exact same model but with a gold color.
+    </p>
+    
+    <script defer>
+        createMeta()
+        createHead("Aerospray MG")
+        createBody()
+    </script>
+</body>
+
+</html>
