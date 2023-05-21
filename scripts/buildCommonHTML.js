@@ -223,3 +223,93 @@ function createStyle(){
   </style>
   ${html.innerHTML}`
 }
+
+// data format: [{type:"something", extraData: thing}]
+// types:
+// text: {type:"text", content:"stuff"}
+// title: {type:"title", content:"stuff"}
+// image: {type:"image", source:"url", title:"text"}
+// info: {type:"info",table:[]}
+// subtitle: {type:"subtitle", content:"stuff"}
+
+// info table types:
+// text: {type:"text",title:"class",content:"shooter"}
+// bar: {type:"bar",title:"range",max:"100",value:"50"}
+// title: {type:"title",content:"text here"}
+// craft: {type:"craft",content:[[sourceImage, count],[sourceImage, count], etc]}
+function createWeaponBlock(data){
+    openingTag = `<div style="border-width: 10px 1px; border-style: solid; border-color: rgb(170, 220, 0); border-radius: 10px; margin: 4px; background-color: rgba(170, 220, 0, 0.25); width: 350px; padding: 8px; float: right; text-align: center;">`
+    closingTag = `</div>`
+    innerHTML = ""
+    for (obj of data){
+        switch (obj.type){
+            case "text":
+                innerHTML += `<div style="text-align:center; float:initial; margin-bottom:15px;">${obj.content}</div>`
+                break
+            case "title":
+                innerHTML += `<div style="padding: 10px; background: rgba(170, 220, 0, 0.3); border-width: 1px 5px 1px 5px; border-style: solid; border-color: rgba(170, 220, 0, 0.5); border-radius: 5px 5px 5px 5px; text-align: center; font-size: 20px;"><b>${obj.content}</b></div>`
+                break
+            case "subtitle":
+                innerHTML += `<div style="background-color: rgba(170, 220, 0, 0.5); text-align: center;" colspan="2">${obj.content}</div>`
+                break
+            case "image":
+                innerHTML += `<p><img src="${obj.source}" width="256" title="${obj.title}"></p>`
+                break
+            case "info":
+                tableStart = `<table style="table-layout:fixed;border-spacing: 4px; text-align: left; width: 100%;"><tbody>`
+                tableEnd = `</tbody></table>`
+                tableContent = ``
+                for (entry of obj.table){
+                    tableContent += `<tr>`
+                    switch (entry.type){
+                        case "text":
+                            tableContent += `<td style="padding: 5px; background: linear-gradient(to right, rgba(170, 220, 0, 0.3) 0%, rgba(170, 220, 0, 0) 100%); border-width: 1px 0px 1px 5px; border-style: solid; border-color: rgba(170, 220, 0, 0.5); border-radius: 5px 0px 0px 5px;"><b>${entry.title}</b></td><td>${entry.content}</td>`
+                            break
+                        case "bar":
+                            tableContent += `<td style="width:50%;padding: 5px; background: linear-gradient(to right, rgba(170, 220, 0, 0.3) 0%, rgba(170, 220, 0, 0) 100%); border-width: 1px 0px 1px 5px; border-style: solid; border-color: rgba(170, 220, 0, 0.5); border-radius: 5px 0px 0px 5px;"><b>${entry.title}</b></td><td style="line-height: 100%;"><div style="display: inline-block; width: 100%; height: 20px; border: 1px solid rgba(235, 238, 61, 0.5); background-color: #cccccc; border-radius: 5px; overflow: hidden; position: relative;"><div style="display: table-cell; width: ${Math.min((entry.value/entry.max)*100,100)}%; height: 100%; background-color: rgb(170, 220, 0); background-repeat: repeat-x; position: absolute;"><div class="infoboxmeter20" style="position: absolute; width: 100%; height: 100%; opacity: 0.25;"></div></div><div style="position: absolute; width: 100%; height: 100%; text-align: center; line-height: 20px; color: #202122;"><b>${entry.value} / ${entry.max}</b></div></div></td>`
+                            break
+                        case "title":
+                            tableContent += `<th style="background-color: rgba(170, 220, 0, 0.5); text-align: center;" colspan="2">${entry.content}</th>`
+                            break
+                        case "crafting":
+                            tableContent += `<th colspan="2" style="justify-content:space-between; padding-left:8%">`
+                            for (item of entry.content){
+                                tableContent += `<img src="${item[0]}" width="75px">x${item[1]}`
+                            }
+                            tableContent += `</th>`
+                    }
+                    tableContent += `</tr>`
+                }
+                innerHTML += tableStart + tableContent + tableEnd
+                break
+        }
+    }
+    return openingTag + innerHTML + closingTag
+}
+
+//example:
+// createWeaponBlock(
+// [
+//     {type:"title", content:"Splattershot Jr"},
+//     {type:"image", source:"images/weapons/splattershot_jr.png", title:"splattershot_jr"},
+//     {type:"text", content:"The current model for the Splattershot Jr"},
+//     {type:"info", table:[
+//         {type:"title",content:"Basic Information"},
+//         {type:"text",title:"Type of Weapon", content:"Main"},
+//         {type:"text",title:"class",content:"Shooter"},
+//         {type:"bar",title:"Range",max:100,value:45},
+//         {type:"bar",title:"Damage",max:100,value:32},
+//         {type:"bar",title:"Fire rate",max:100,value:80},
+//         {type:"title",content:"Crafting"},
+//         {type:"crafting", content:[
+//             ["images/crafting/sardinium.png",4],
+//             ["images/crafting/power_egg.png",8],
+//             ["images/crafting/inc_sac.webp",4],
+//             ["images/crafting/glass.webp",4]
+//         ]},
+//         {type:"title",content:"Specifications"},
+//         {type:"text",title:"Base Damage",content:"6.5"},
+//         {type:"text",title:"Ink Consumption",content:"0.5"}
+//     ]}
+// ]
+// )
