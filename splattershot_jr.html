@@ -9,117 +9,116 @@
 
 <body>
     <script src="scripts/buildCommonHTML.js"></script>
-            <script>
-                overlay = document.body
-                overlay.innerHTML = createWeaponBlock(
-                    [
-                        {type:"title", content:"Splattershot Jr"},
-                        {type:"image", source:"images/weapons/splattershot_jr.png", title:"splattershot_jr"},
-                        {type:"text", content:"The current model for the Splattershot Jr"},
-                        {type:"info", table:[
-                            {type:"title",content:"Basic Information"},
-                            {type:"text",title:"Type of Weapon", content:"Main"},
-                            {type:"text",title:"class",content:"Shooter"},
-                            {type:"bar",title:"Range",max:100,value:45},
-                            {type:"bar",title:"Damage",max:100,value:32},
-                            {type:"bar",title:"Fire rate",max:100,value:80},
-                            {type:"title",content:"Crafting"},
-                            {type:"crafting", content:[
-                                ["images/crafting/sardinium.png",4],
-                                ["images/crafting/power_egg.png",8],
-                                ["images/crafting/inc_sac.webp",4],
-                                ["images/crafting/glass.webp",4]
-                            ]},
-                            {type:"title",content:"Specifications"},
-                            {type:"text",title:"Base Damage",content:"6.5"},
-                            {type:"text",title:"Ink Consumption",content:"0.5"}
-                        ]}
-                    ]
-                ) + overlay.innerHTML
-            </script>
-            <h1 style="width:fit-content">Splattershot Jr</h1>
-            <p>
-                <i>
-                    From Splatcraft Wiki
-                </i>
+    <script>
+        overlay = document.body
+        overlay.innerHTML = createWeaponBlock(
+            [
+                {type:"title", content:"Splattershot Jr"},
+                {type:"image", source:"images/weapons/splattershot_jr.png", title:"splattershot_jr"},
+                {type:"text", content:"The current model for the Splattershot Jr"},
+                {type:"info", table:[
+                    {type:"title",content:"Basic Information"},
+                    {type:"text",title:"Type of Weapon", content:"Main"},
+                    {type:"text",title:"class",content:"Shooter"},
+                    {type:"bar",title:"Range",max:100,value:45},
+                    {type:"bar",title:"Damage",max:100,value:32},
+                    {type:"bar",title:"Fire rate",max:100,value:80},
+                    {type:"title",content:"Crafting"},
+                    {type:"crafting", content:[
+                        ["images/crafting/sardinium.png",4],
+                        ["images/crafting/power_egg.png",8],
+                        ["images/crafting/inc_sac.webp",4],
+                        ["images/crafting/glass.webp",4]
+                    ]},
+                    {type:"title",content:"Specifications"},
+                    {type:"text",title:"Base Damage",content:"6.5"},
+                    {type:"text",title:"Ink Consumption",content:"0.5"}
+                ]}
+            ]
+        ) + overlay.innerHTML
+    </script>
+    <h1 style="width:fit-content">Splattershot Jr</h1>
+    <p>
+        <i>
+            From Splatcraft Wiki
+        </i>
 
-            </p>
-            <p>
-                Like the <a href = "splattershot.html">Splattershot</a>, the Splattershot jr is a very basic shooter. However, it has more spread and less range and damage than the regular Splattershot.
-            </p>
-            <h2>
-                Appearance
-            </h2>
-            <p>
-                The Splattershot Jr resembles its original design from Splatoon while also receiving a blocky look.
-            </p>
-            <p>
-                The model is mainly ink colored with purple on the top cap, trigger, and nozzle of the weapon. The model was made by Cibernet.
-            </p>
-            <h2>
-                Weapon data
-            </h2>
-                <p>
-                    The Splattershot Jr has the following data:
-                </p>
-                <div style="column-width: 25em;" id="weaponData">
-                    <!-- <ul> I made this at like 10 pm (CET)
+    </p>
+    <p>
+        Like the <a href = "splattershot.html">Splattershot</a>, the Splattershot jr is a very basic shooter. However, it has more spread and less range and damage than the regular Splattershot.
+    </p>
+    <h2>
+        Appearance
+    </h2>
+    <p>
+        The Splattershot Jr resembles its original design from Splatoon while also receiving a blocky look.
+    </p>
+    <p>
+        The model is mainly ink colored with purple on the top cap, trigger, and nozzle of the weapon. The model was made by Cibernet.
+    </p>
+    <h2>
+        Weapon data
+    </h2>
+        <p>
+            The Splattershot Jr has the following data:
+        </p>
+        <div style="column-width: 25em;" id="weaponData">
+            <!-- <ul> I made this at like 10 pm (CET)
+                <li>
+                    The projectile size is 1.
+                </li>
+                <li>
+                    The projectile speed is 0.75.
+                </li>
+                <li>
+                    Firing speed is 3.
+                </li>
+                <li>
+                    Ground inaccuracy is 6.
+                </li>
+                <li>
+                    Air inaccuracy is 12.
+                </li>
+                <li>
+                    Ink consumption is 0.9.
+                    <ul>
                         <li>
-                            The projectile size is 1.
+                            This allows the player to shoot 111 projectiles just like in the original game. However this stat cannot be changed as abilites are not added in the game.
                         </li>
-                        <li>
-                            The projectile speed is 0.75.
-                        </li>
-                        <li>
-                            Firing speed is 3.
-                        </li>
-                        <li>
-                            Ground inaccuracy is 6.
-                        </li>
-                        <li>
-                            Air inaccuracy is 12.
-                        </li>
-                        <li>
-                            Ink consumption is 0.9.
-                            <ul>
-                                <li>
-                                    This allows the player to shoot 111 projectiles just like in the original game. However this stat cannot be changed as abilites are not added in the game.
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            Ink recovery cooldown is 7.
-                        </li>
-                        <li>
-                            Base damage is 8 (<img src="images/crafting/heart.webp"><img src="images/crafting/heart.webp"><img src="images/crafting/heart.webp"><img src="images/crafting/heart.webp">).
-                        </li>
-                        <li>
-                            Minimum damage is 4 (<img src="images/crafting/heart.webp"><img src="images/crafting/heart.webp">).
-                        </li>
-                        <li>
-                            Damage decay starts at 3.
-                        </li>
-                        <li>
-                            Damage decay per tick is 0.34.
-                        </li>
-                    </ul> -->
-                </div>
-                <script src="scripts/weaponData.js"></script>
-                <script>
-                    async function showData(){
-                        await getWeaponData()
-                        document.getElementById("weaponData").innerHTML = getShooter("splattershot_jr").text()
-                    }
-                    showData()
-                </script>
-            <h2>
-                Variants
-            </h2>
-            <p>
-                Kensa Splattershot Jr, the color scheme is mainly black with white accents to fit with Tony Kensa branding. It also has the Tony Kensa t logo on the side.
-            </p>
-
-    </div>
+                    </ul>
+                </li>
+                <li>
+                    Ink recovery cooldown is 7.
+                </li>
+                <li>
+                    Base damage is 8 (<img src="images/crafting/heart.webp"><img src="images/crafting/heart.webp"><img src="images/crafting/heart.webp"><img src="images/crafting/heart.webp">).
+                </li>
+                <li>
+                    Minimum damage is 4 (<img src="images/crafting/heart.webp"><img src="images/crafting/heart.webp">).
+                </li>
+                <li>
+                    Damage decay starts at 3.
+                </li>
+                <li>
+                    Damage decay per tick is 0.34.
+                </li>
+            </ul> -->
+        </div>
+        <script src="scripts/weaponData.js"></script>
+        <script>
+            async function showData(){
+                await getWeaponData()
+                document.getElementById("weaponData").innerHTML = getShooter("splattershot_jr").text()
+            }
+            showData()
+        </script>
+    <h2>
+        Variants
+    </h2>
+    <p>
+        Kensa Splattershot Jr, the color scheme is mainly black with white accents to fit with Tony Kensa branding. It also has the Tony Kensa t logo on the side.
+    </p>
+    
     <script defer>
         createMeta()
         createHead("test")
